@@ -7,6 +7,17 @@ For instructions on upgrading to newer versions, visit
 
 ### Resolved Issues
 
+* \#3231 Allow evolution of proxy documents to work in criteria.
+
+* \#3247 Bump dependency on tzinfo to 0.3.29.
+
+* \#3203 Fixed `index: true` specification for polymorphic relations.
+
+* \#3173 Fixed issues around many to many relations with custom primary keys.
+  (Bowen Sun)
+
+* \#3159 Upserting now properly flags documents as persisted.
+
 * \#3079 Embbed docs with paranoia parents, were losing the _id when
   reloading from db, as they didnt have the right persisted? value. (Arthur Neves)
 

@@ -240,6 +240,24 @@ describe Mongoid::Relations::Macros do
       klass.should respond_to(:belongs_to)
     end
 
+    context "when the relation is polymorphic" do
+
+      context "when indexed is true" do
+
+        before do
+          klass.belongs_to(:relatable, polymorphic: true, index: true)
+        end
+
+        let(:indexes) do
+          klass.index_options
+        end
+
+        it "adds the background index to the definitions" do
+          expect(indexes).to eq({ relatable_id: 1, relatable_type: 1 } => { background: true })
+        end
+      end
+    end
+
     context "when defining the relation" do
 
       before do
